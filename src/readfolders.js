@@ -2,7 +2,9 @@ const {
   preDefineFlutterValues,
   PROJECTFOUND,
   NOTFOUND,
-  LOL
+  LOL,
+  workspaceReadSuccess,
+  unabletoScan
 } = require("./const");
 const vscode = require('vscode');
 const {
@@ -21,16 +23,14 @@ const {
  * @param {compare} callback 
  */
 function readFolders(callback) {
-  console.log("inside  read file");
   var currentdir = vscode.workspace.workspaceFolders[0].uri.path.replaceAll("/", "\\").replace("\\", "");
   fs.readdir(currentdir, function (err, files) {
     if (err) {
-      console.log('Unable to scan directory: ' + err);
-      return uierrorMessage("Unable to Scan Directory");
+      console.log(unabletoScan + err);
+      return uierrorMessage(unabletoScan);
     }
-    uiinfoMessage("Directory Read Successful")
+    uiinfoMessage(workspaceReadSuccess);
     return callback(files, showmessage);
-
   });
 }
 
