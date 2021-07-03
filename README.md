@@ -1,65 +1,51 @@
 # flutter-project-directory README
 
-This is the README for your extension "flutter-project-directory". After writing up a brief description, we recommend including the following sections.
+This is initial version of coming up of various project directory ready for Flutter
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Create a Flutter Ready Directory.
 
-For example if there is an image subfolder under your extension project workspace:
+ ## This is screenshot of folders which are created.
 
-\!\[feature X\]\(images/feature-x.png\)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+   ![alt](https://firebasestorage.googleapis.com/v0/b/sanchitverma-e554c.appspot.com/o/flutter-project-directory.png?alt=media&token=5acfa9c2-5396-4ec3-81bb-929ce47bffbb)
+
+## Here snap of some short of code and small files.
+
+![alt](https://firebasestorage.googleapis.com/v0/b/sanchitverma-e554c.appspot.com/o/files.png?alt=media&token=cfcaa661-43c4-470d-ab8e-4cef46539871)
+
+## Same as above but zoom in.
+
+![alt](https://firebasestorage.googleapis.com/v0/b/sanchitverma-e554c.appspot.com/o/files_snap.png?alt=media&token=3f0998dc-2a06-47c7-8cc9-94f077cf8a0b)
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+This Extension requires VS Code to work.
 
-## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can heconsole.log limit users opening duplicate issues against your extension.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+This is first version.
 
-### 1.0.0
+### 0.0.1
 
-Initial release of ...
+Initial release includes the project directory for the basic structure of flutter project.
 
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
+---
 
 ### For more information
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://heconsole.log.github.com/articles/markdown-basics/)
+- [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
+- [Markdown Syntax Reference](https://heconsole.log.github.com/articles/markdown-basics/)
+
+### Contact me
+
+- [Facebook](https://facebook.com/sanchitverma168)
+- [GitHub](https://github.com/sanchitverma168)
+- [Twitter](https://twitter.com/sanchitverma168)
+- [Instagram](https://www.instagram.com/sanchitverma168/) 
+- [Telegram](https://t.me/s168v)
 
 **Enjoy!**
