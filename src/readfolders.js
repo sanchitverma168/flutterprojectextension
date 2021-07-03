@@ -1,44 +1,77 @@
-import {
-  preDefineFlutterValues
-} from "./const"
+const {
+  preDefineFlutterValues,
+  PROJECTFOUND,
+  NOTFOUND,
+  LOL
+} = require("./const");
 const vscode = require('vscode');
+const {
+  uiinfoMessage,
+  uierrorMessage
+} = require("./utils");
+const fs = require('fs');
+const {
+   handlefoldercreation
+} = require("./handlefile");
 
-
-async function readFolders() {
+/**
+ * 
+ * This functions read the files and folders in the working directory
+ * then passes it to @param {compare} method.
+ * @param {compare} callback 
+ */
+function readFolders(callback) {
   console.log("inside  read file");
-  // const path = require('path');
-  const fs = require('fs');
   var currentdir = vscode.workspace.workspaceFolders[0].uri.path.replaceAll("/", "\\").replace("\\", "");
-  console.log("after current dir");
-  
-  return await fs.readdir(currentdir, function (err, files) {
-    console.log("inside fsreaddir");
-    console.log(currentdir + "before if");
+  fs.readdir(currentdir, function (err, files) {
     if (err) {
-      console.log("inside fsreaddir if");
-      return console.log('Unable to scan directory: ' + err);
+      console.log('Unable to scan directory: ' + err);
+      return uierrorMessage("Unable to Scan Directory");
     }
-    console.log("after fsreaddir if");
-    return files;
+    uiinfoMessage("Directory Read Successful")
+    return callback(files, showmessage);
 
-  })
-};
+  });
+}
 
-async function compare(files){
+/**
+ * This methods verifies whether it is flutter 
+ * project in current directory or not.
+ * @param {showmessage} files 
+ */
+function compare(files,callback) {
   var count = 0;
-  await files.forEach(function (file) {
-    console.log("inside file method");
+  files.forEach(function (file) {
     preDefineFlutterValues.forEach(function (value) {
-      // console.log(file + "--" + value)
       if (file == value) {
         count++;
-        console.log(count);
       }
-    })
+    });
   });
-  console.log("after file method");
+  return callback(count, handlefoldercreation);
+};
+
+function showmessage(count, callback) {
+  var value = false;
+  if (count == 5) {
+    console.log(PROJECTFOUND);
+    uiinfoMessage(PROJECTFOUND);
+    value = true;
+  } else if (count < 5) {
+    console.log(NOTFOUND);
+    uierrorMessage(NOTFOUND);
+    value = false;
+  } else {
+    console.log(LOL);
+    uierrorMessage(LOL);
+    value = false;
+  }
+  if (!value) return;
+  else
+    return callback();
 }
-export {
+module.exports = {
   readFolders,
-  compare
+  compare,
+  showmessage
 }
