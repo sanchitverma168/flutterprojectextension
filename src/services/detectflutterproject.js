@@ -5,16 +5,23 @@ const {
   LOL,
   workspaceReadSuccess,
   unabletoScan
-} = require("./const");
-const vscode = require('vscode');
+} = require("../const/common.js");
+const {
+  dirname_underLIB,
+  filetomake,
+} = require('../const/normal.js');
+const {
+  blocfilescreate,
+  blocfolderstocreate
+} = require("../const/bloc.js");
+const {
+  handlefoldercreation
+} = require("../services/index.js");
+const currentdir = require('vscode').workspace.workspaceFolders[0].uri.path.replaceAll("/", "\\").replace("\\", "");
 const {
   uiinfoMessage,
   uierrorMessage
-} = require("./utils");
-const fs = require('fs');
-const {
-   handlefoldercreation
-} = require("./handlefile");
+} = require("../utils/index");
 
 /**
  * 
@@ -22,15 +29,14 @@ const {
  * then passes it to @param {compare} method.
  * @param {compare} callback 
  */
-function readFolders(callback) {
-  var currentdir = vscode.workspace.workspaceFolders[0].uri.path.replaceAll("/", "\\").replace("\\", "");
-  fs.readdir(currentdir, function (err, files) {
+function readFolders(index) {
+  require('fs').readdir(currentdir, function (err, files) {
     if (err) {
       console.log(unabletoScan + err);
       return uierrorMessage(unabletoScan);
     }
     uiinfoMessage(workspaceReadSuccess);
-    return callback(files, showmessage);
+    return compare(files, showmessage, index);
   });
 }
 
@@ -39,7 +45,7 @@ function readFolders(callback) {
  * project in current directory or not.
  * @param {showmessage} files 
  */
-function compare(files,callback) {
+function compare(files, callback, index) {
   var count = 0;
   files.forEach(function (file) {
     preDefineFlutterValues.forEach(function (value) {
@@ -48,10 +54,10 @@ function compare(files,callback) {
       }
     });
   });
-  return callback(count, handlefoldercreation);
+  return callback(count, index);
 };
 
-function showmessage(count, callback) {
+function showmessage(count, index) {
   var value = false;
   if (count == 5) {
     console.log(PROJECTFOUND);
@@ -67,8 +73,13 @@ function showmessage(count, callback) {
     value = false;
   }
   if (!value) return;
-  else
-    return callback();
+  else {
+    if (index == 0) {
+      return handlefoldercreation(dirname_underLIB, filetomake);
+    } else {
+      return handlefoldercreation(blocfolderstocreate, blocfilescreate);
+    }
+  }
 }
 module.exports = {
   readFolders,

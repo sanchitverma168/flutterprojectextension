@@ -1,0 +1,1 @@
+vsce package // this will make thi vsix file to publish 

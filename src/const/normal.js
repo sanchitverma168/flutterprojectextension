@@ -1,9 +1,15 @@
-const PROJECTFOUND = "Flutter Project Found Creating Folders";
-const NOTFOUND = "Flutter Project Not Found";
-const LOL = "LOL i don't know what is this project directory.";
-const preDefineFlutterValues = ["android", "ios", "lib", "pubspec.yaml", "pubspec.lock"];
-const CREATED = "Diretory Created Successfuly";
-const ERROR = "Directory Already Exists";
+const {
+  PROJECTFOUND,
+  NOTFOUND,
+  LOL,
+  preDefineFlutterValues,
+  CREATED,
+  ERROR,
+  allFoldersCreated,
+  workspaceReadSuccess,
+  unabletoScan,
+  unabletoCreaeFile
+} = require('./common');
 const colors_dart = ["colors.dart", "import 'package:flutter/material.dart';\n\n class AppColors{ \n }\n"];
 const images_dart = ["images.dart", "import 'package:flutter/material.dart';\n\n class AppImages{ \n }\n"];
 const shapes_dart = ["shapes.dart", "import 'package:flutter/material.dart';\n\n class AppShapes{ \n }\n"];
@@ -36,11 +42,7 @@ const filetomake = [
     base_client,
   ]
 ];
-const dirname_outsideLIB = ["packages"];
-const allFoldersCreated = "All folders created Successully";
-const workspaceReadSuccess = "Workspace Scan Successful";
-const unabletoScan = "Unable to Scan Directory";
-const unabletoCreaeFile = "Unable to Create File";
+
 module.exports = {
   unabletoCreaeFile,
   unabletoScan,
@@ -54,7 +56,6 @@ module.exports = {
   images_dart,
   sizes_dart,
   dirname_underLIB,
-  dirname_outsideLIB,
   allFoldersCreated,
   strings_dart,
   theme_dart,

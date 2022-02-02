@@ -2,7 +2,8 @@
 	"name": "flutter-project-directory",
 	"displayName": "Flutter Project Directory",
 	"description": "This is a extension which will create you the sample project directory for your files in flutter project.",
-	"version": "0.0.2",
+	"version": "0.0.3",
+	"icon": "images/logo.png",
 	"engines": {
 		"vscode": "^1.57.0"
 	},
@@ -11,20 +12,32 @@
 		"Other"
 	],
 	"keywords": [
-		"javascript",
-		"vscode",
-		"vs code",
+		"flutter",
+		"snippets",
+		"templates",
 		"extension",
-		"nodejs"
+		"flutter project",
+		"intellisense",
+		"snip",
+		"bloc",
+		"provider",
+		"dart",
+		"state",
+		"management"
+
 	],
 	"activationEvents": [
-		"onCommand:flutter-project-directory.createfolders"
+		"onCommand:flutter-project-directory.createfolders",
+		"onCommand:flutter-project-directory.createblocfolders"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [{
 			"command": "flutter-project-directory.createfolders",
-			"title": "Create Folders for Flutter Project"
+			"title": "FPD:: Create Folders for Flutter Project"
+		}, {
+			"command": "flutter-project-directory.createblocfolders",
+			"title": "FPD:: Create Bloc Folders for Flutter Project"
 		}]
 	},
 	"repository": {
